@@ -1,0 +1,35 @@
+<ion-split-pane>
+  <ion-menu contentId="content" type="push">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+          <ion-item *ngIf="p.activated" [routerLink]="p.url" routerDirection="root"
+            [class.active-item]="selectedPath.startsWith(p.url)">
+            <ion-label>
+              <ion-icon name="quote" slot="start"></ion-icon>
+              {{ p.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+
+      <ion-list class="fixed-bottom">
+        <ion-item tappable routerLink="/login" routerDirection="root">
+          <ion-icon name="close" slot="start"></ion-icon>
+          Logout
+        </ion-item>
+        <ion-item tappable>
+          <ion-icon name="settings" slot="start"></ion-icon>
+          settings
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content" main>
+  </ion-router-outlet>
+</ion-split-pane>
