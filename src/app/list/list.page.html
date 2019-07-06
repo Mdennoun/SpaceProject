@@ -9,19 +9,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
-</ion-content>
+<ion-content padding>
+
+    <!-- <ion-progress-bar class="mt-3" type="indeterminate" color="tertiary"></ion-progress-bar>
+    <ion-progress-bar class="mt-3" color="secondary" value="0.5"></ion-progress-bar>
+    <ion-progress-bar class="mt-3" value="0.25"  buffer="0.5"></ion-progress-bar> -->
+    <!-- <pre>{{launches | json}}</pre> -->
+  
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+      <ion-item *ngFor="let m of missions" class="ion-activatable">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text *ngIf="!m"></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{m.mission_name}}</h2>
+        </ion-label>
+        <ion-note slot="end">
+            {{m.mission_id}}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-content>
