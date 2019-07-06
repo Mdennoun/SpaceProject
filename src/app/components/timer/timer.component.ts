@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HomePage } from 'src/app/home/home.page';
+import { Launch } from 'src/app/models/launch.model';
+import { LaunchesService } from 'src/app/services/spacex-api/launches.service';
+
 
 @Component({
   selector: 'app-timer',
@@ -7,16 +11,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class TimerComponent implements OnInit {
- @Input() variableTimer: string;
-  constructor() { 
-    this.initTimer();
+  launch:Launch;
+
+  ngOnInit() {
+    this.launchesService.getNextLaunches().subscribe(result => {
+      this.initTimer(result.launch_date_local);
+    });
+    
   }
 
-  ngOnInit() {}
+  constructor(private launchesService: LaunchesService,) { }
+
+     
+ 
+ @Input() variableTimer: string;
+
+
   
-  initTimer() {
+  initTimer(date:String) {
   // Set the date we're counting down to
-  const countDownDate = new Date('Jan 5, 2021 15:37:25').getTime();
+  
+  const countDownDate = new Date("2019-07-21T19:35:00-04:00").getTime();
 
   // Update the count down every 1 second
   const x = setInterval(() => {

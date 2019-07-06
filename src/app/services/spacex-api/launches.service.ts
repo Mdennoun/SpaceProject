@@ -38,4 +38,12 @@ export class LaunchesService {
       })
     );
   }
+  getNextLaunches(): Observable<Launch> {
+    const requestEndpoint = this.apiBaseUrl + 'launches/next';
+    return this.http.get<Launch>(requestEndpoint).pipe(
+      map(missions => {
+        return missions;
+      })
+    );
+  }
 }
