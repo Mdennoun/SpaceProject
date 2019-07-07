@@ -1,11 +1,107 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Details</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+          Details
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
+    <ion-label style="margin-top:1rem" class="title">
+        Name :
+    </ion-label>
+    <br/>
   <ion-label>
-    <h2>{{mission.mission_name}}</h2>
+    {{mission.mission_name}}
   </ion-label>
-</ion-content>
+  <br/>
+  <ion-label *ngIf="mission.website" class="title">
+      website :
+  </ion-label>
+  <br/>
+<ion-label *ngIf="mission.website" >
+  {{mission.website}}
+</ion-label>
+  <br/>
+  <ion-label *ngIf="mission.wikipedia" class="title">
+      Wikipedia :
+  </ion-label>
+  <br/>
+<ion-label *ngIf="mission.wikipedia" >
+  {{mission.wikipedia}}
+</ion-label>
+<br/>
+<ion-label *ngIf="mission.twitter" class="title">
+    Twitter :
+</ion-label>
+<br/>
+<ion-label *ngIf="mission.twitter" >
+  {{mission.twitter}}
+</ion-label>
+<br/>
+<ion-label *ngIf="mission.description" class="title">
+    Description :
+</ion-label>
+<br/>
+<ion-label *ngIf="mission.description" >
+  {{mission.description}}
+</ion-label>
+<br/>
+<br/>
+  </ion-content>
+<br/>
+  <ion-label>Paysloads</ion-label>
+  <ion-content>
+      <ion-list>
+        <ion-item *ngFor="let m_name of mission.payload_ids" class="ion-activatable" (click)="openDetailsWithQueryParams(m)" >
+          <ion-ripple-effect></ion-ripple-effect>
+        
+          <ion-label>
+            <h2>{{m_name}}</h2>
+          </ion-label>
+          <ion-note slot="end">
+              {{mission.mission_id}}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  <br/>
+  <ion-label>Launches :</ion-label>
+
+  <ion-content>
+     
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <ion-content *ngIf="LaunchInMission( launches, mission)" >
+      <ion-list *ngFor="let l of IsInMission(launches, mission)"  >
+
+        <ion-item class="ion-activatable">
+          <ion-ripple-effect></ion-ripple-effect>
+          <ion-thumbnail slot="start">
+            <ion-skeleton-text *ngIf="!l.links.mission_patch"></ion-skeleton-text>
+            <img *ngIf="l.links.mission_patch" [src]="l.links.mission_patch">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{l.mission_name}}</h2>
+            <h2>{{mission.mission_name}}</h2>
+            <p>{{l.launch_site.site_name_long}}</p>
+            <p>{{l.rocket.rocket_name}}</p>
+          </ion-label>
+          <ion-note slot="end">
+            {{l.launch_year}}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+      </ion-content>
+      <ion-label *ngIf="!LaunchInMission( launches, mission)" >
+        <br/>
+        No launches for this mission.</ion-label>
+    
+    
+    </ion-content>
+
+

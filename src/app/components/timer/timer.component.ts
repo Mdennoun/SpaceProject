@@ -24,8 +24,10 @@ export class TimerComponent implements OnInit {
 
      
  
- @Input() variableTimer: string;
-
+ @Input() days: number;
+ @Input() hours: number;
+ @Input() minutes: number;
+ @Input() seconds: number;
 
   
   initTimer(date:String) {
@@ -49,8 +51,10 @@ export class TimerComponent implements OnInit {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    this.variableTimer = days + 'd ' + hours + 'h '
-        + minutes + 'm ' + seconds + 's ';
+    this.days = days ;
+    this.hours = hours;
+    this.minutes = minutes;
+    this.seconds = seconds;
 
     // If the count down is finished, write some text
     if (distance < 0) {

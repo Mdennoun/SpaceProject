@@ -11,15 +11,12 @@
 
 <ion-content>
   <h4>Countdown to next launch:</h4>
+  <br/>
+  <br/>
 <app-timer></app-timer>
 </ion-content>
 
-<ion-content padding>
-    <!-- <ion-progress-bar class="mt-3" type="indeterminate" color="tertiary"></ion-progress-bar>
-    <ion-progress-bar class="mt-3" color="secondary" value="0.5"></ion-progress-bar>
-    <ion-progress-bar class="mt-3" value="0.25"  buffer="0.5"></ion-progress-bar> -->
-    <!-- <pre>{{launches | json}}</pre> -->
-  
+<ion-content >
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>

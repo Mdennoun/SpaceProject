@@ -18,6 +18,11 @@ const routes: Routes = [
 
       },
       {
+        path: 'details',
+        loadChildren: '../details/details.module#DetailsPageModule'
+
+      },
+      {
         path: 'first',
         loadChildren: '../first-with-tabs/first-with-tabs.module#FirstWithTabsPageModule'
       },

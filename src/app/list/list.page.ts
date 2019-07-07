@@ -32,16 +32,7 @@ export class ListPage implements OnInit {
         special: JSON.stringify(mission)
       }
     };
-    this.router.navigate(['details'], navigationExtras);
-  }
-  public open(event, item) {
-    event.stopPropagation();
-    this.router.navigate(['details']);
-  }
-
-  public download(event, item) {
-    event.stopPropagation();
-    alert('Download ' + item);
+    this.router.navigate(['menu/details'], navigationExtras);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LaunchesService } from '../services/spacex-api/launches.service';
 import { Launch } from '../models/launch.model';
+import { Mission } from '../models/mission.model';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,14 @@ export class HomePage implements OnInit {
       this.launch = result;
       event.target.complete();
     });
+  }
+
+  public IsInMission(launch:Launch, mission:Mission) {
+    if(launch.mission_name.startsWith(mission.mission_name)) {
+
+      return true;
+    }
+    return false;
   }
 
 }
