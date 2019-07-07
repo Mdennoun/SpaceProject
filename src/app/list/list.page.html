@@ -20,7 +20,7 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
     <ion-list>
-      <ion-item *ngFor="let m of missions" class="ion-activatable">
+      <ion-item *ngFor="let m of missions" class="ion-activatable" (click)="openDetailsWithQueryParams(m)" >
         <ion-ripple-effect></ion-ripple-effect>
         <ion-thumbnail slot="start">
           <ion-skeleton-text *ngIf="!m"></ion-skeleton-text>

@@ -11,7 +11,9 @@
           <ion-item *ngIf="p.activated" [routerLink]="p.url" routerDirection="root"
             [class.active-item]="selectedPath.startsWith(p.url)">
             <ion-label>
-              <ion-icon name="quote" slot="start"></ion-icon>
+              <ion-icon name="jet" *ngIf="p.title == 'Launches'" slot="start"></ion-icon>
+              <ion-icon name="home" *ngIf="p.title == 'Home'" slot="start"></ion-icon>
+              <ion-icon name="medal" *ngIf="p.title == 'Missions'" slot="start"></ion-icon>
               {{ p.title }}
             </ion-label>
           </ion-item>
