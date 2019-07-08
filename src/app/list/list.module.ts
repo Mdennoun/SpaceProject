@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from '../modules/components/components.modules';
 
 import { ListPage } from './list.page';
 
@@ -11,6 +12,7 @@ import { ListPage } from './list.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     RouterModule.forChild([
       {
         path: '',

@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-buttons slot="start">
           <ion-back-button></ion-back-button>
       </ion-buttons>
@@ -10,50 +10,43 @@
   </ion-header>
 
 <ion-content>
-    <ion-label style="margin-top:1rem" class="title">
+    <ion-label style="margin-top:0.3% !important" class="title">
         Name :
     </ion-label>
-    <br/>
   <ion-label>
     {{mission.mission_name}}
   </ion-label>
-  <br/>
   <ion-label *ngIf="mission.website" class="title">
-      website :
+      Website :
   </ion-label>
-  <br/>
 <ion-label *ngIf="mission.website" >
   {{mission.website}}
 </ion-label>
-  <br/>
   <ion-label *ngIf="mission.wikipedia" class="title">
       Wikipedia :
   </ion-label>
-  <br/>
 <ion-label *ngIf="mission.wikipedia" >
   {{mission.wikipedia}}
 </ion-label>
-<br/>
 <ion-label *ngIf="mission.twitter" class="title">
     Twitter :
 </ion-label>
-<br/>
 <ion-label *ngIf="mission.twitter" >
   {{mission.twitter}}
 </ion-label>
-<br/>
 <ion-label *ngIf="mission.description" class="title">
     Description :
 </ion-label>
-<br/>
 <ion-label *ngIf="mission.description" >
   {{mission.description}}
 </ion-label>
 <br/>
 <br/>
   </ion-content>
+  <app-skeleton *ngIf="!mission.payload_ids"></app-skeleton>
 <br/>
-  <ion-label>Paysloads</ion-label>
+<!--
+  <ion-label class="title">Paysloads :</ion-label>
   <ion-content>
       <ion-list>
         <ion-item *ngFor="let m_name of mission.payload_ids" class="ion-activatable" (click)="openDetailsWithQueryParams(m)" >
@@ -69,9 +62,12 @@
       </ion-list>
     </ion-content>
   <br/>
-  <ion-label>Launches :</ion-label>
+-->
+  
+  <ion-label class="title">Launches :</ion-label>
 
   <ion-content>
+      <app-skeleton *ngIf="!IsInMission(launches, mission)"></app-skeleton>
      
       <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>

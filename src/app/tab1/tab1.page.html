@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Tab 1</ion-title>
+    <ion-title>Upcoming lunches</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -20,7 +20,7 @@
     <ion-item *ngFor="let l of launches" class="ion-activatable">
       <ion-ripple-effect></ion-ripple-effect>
       <ion-thumbnail slot="start">
-        <ion-skeleton-text *ngIf="!l.links.mission_patch"></ion-skeleton-text>
+        <ion-skeleton-text *ngIf="!l.links.mission_patch" Description> test </ion-skeleton-text>
         <img *ngIf="l.links.mission_patch" [src]="l.links.mission_patch">
       </ion-thumbnail>
       <ion-label>

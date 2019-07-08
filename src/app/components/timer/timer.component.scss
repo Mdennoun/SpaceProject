@@ -5,12 +5,6 @@ body{
   font-weight: 100;
 }
 
-h1{
-  color: #396;
-  font-weight: 100;
-  font-size: 40px;
-  margin: 40px 0px 20px;
-}
 
 #clockdiv{
 	font-family: sans-serif;
@@ -23,7 +17,7 @@ h1{
 
 #clockdiv > div{
 	padding: 10px;
-	background: aliceblue;
+	background: #1a237e;
 	display: inline-block;
 }
 

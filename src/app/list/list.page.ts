@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MissionsService } from '../services/spacex-api/missions.service';
 import { Mission } from '../models/mission.model';
-import {DetailsPage} from '../details/details.page';
 import { Router, NavigationExtras} from '@angular/router';
 
 @Component({

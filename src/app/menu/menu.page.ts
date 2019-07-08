@@ -36,5 +36,10 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
   }
-
+  public bye() {
+    alert("Aurevoir ! *.*")
+  }
+  public params() {
+    alert("Nothing to parametrate ! ^.^' ")
+  }
 }

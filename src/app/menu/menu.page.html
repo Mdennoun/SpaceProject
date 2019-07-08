@@ -26,11 +26,11 @@
     <ion-content padding>
         
       <ion-list class="fixed-bottom">
-        <ion-item tappable routerLink="/login" routerDirection="root">
-          <ion-icon name="close" slot="start"></ion-icon>
+        <ion-item (click)="bye()">
+          <ion-icon name="close" slot="start" ></ion-icon>
           Logout
         </ion-item>
-        <ion-item tappable>
+        <ion-item (click)="params()">
           <ion-icon name="settings" slot="start"></ion-icon>
           settings
         </ion-item>
